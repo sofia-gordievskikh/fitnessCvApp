@@ -1,7 +1,16 @@
 .gradle/
 build/
+dist/
 local.properties
 .idea/
 *.iml
 __pycache__/
 .venv/
+node_modules/
+.env
+ml/weights/*.pt
+ml/runs/
+data/raw/
+data/processed/
+*.mp4
+*.mov
