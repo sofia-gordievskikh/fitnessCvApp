@@ -1,0 +1,13 @@
+name: body-parts-segmentation
+dataset: data/processed/body_parts_yolo/data.yaml
+model: yolo11n-seg.pt
+epochs: 80
+imgsz: 640
+batch: 8
+classes:
+  - torso
+  - left_arm
+  - right_arm
+  - left_leg
+  - right_leg
+  - head
