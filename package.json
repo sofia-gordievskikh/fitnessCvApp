@@ -1,0 +1,13 @@
+{
+  "name": "fitness-cv-app",
+  "version": "0.1.0",
+  "description": "fitness desktop app with cv backend",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "backend": "uvicorn backend.app.main:app --reload --port 8000"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0"
+  }
+}

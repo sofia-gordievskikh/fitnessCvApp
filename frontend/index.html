@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>fitness cv app</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="panel">
+        <p class="kicker">СиСРТ МТУСИ / CV prototype</p>
+        <h1>Анализ кадра тренировки</h1>
+        <p class="lead">
+          Загрузить фото с упражнением, отправить в Python backend и получить
+          сегментацию человека, части тела и грубую оценку позы.
+        </p>
+
+        <label class="dropzone">
+          <input id="fileInput" type="file" accept="image/*" />
+          <span>выбрать изображение</span>
+        </label>
+
+        <div class="actions">
+          <button id="analyzeBtn" disabled>анализ</button>
+          <button id="clearBtn" disabled>сброс</button>
+        </div>
+
+        <p id="status" class="status">backend: ожидает кадр</p>
+      </section>
+
+      <section class="viewer">
+        <div class="imageBox">
+          <img id="preview" alt="" />
+          <canvas id="overlay"></canvas>
+        </div>
+        <aside class="result">
+          <h2>результат</h2>
+          <dl>
+            <dt>модель</dt>
+            <dd id="modelName">-</dd>
+            <dt>части тела</dt>
+            <dd id="parts">-</dd>
+            <dt>score</dt>
+            <dd id="score">-</dd>
+          </dl>
+          <pre id="jsonOut">{}</pre>
+        </aside>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
