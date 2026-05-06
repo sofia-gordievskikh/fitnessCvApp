@@ -7,47 +7,96 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <div id="offlineBanner" class="banner hidden">
+      backend недоступен на <span id="apiUrl"></span> — запусти <code>make backend</code>
+      <button id="retryBtn">повторить</button>
+    </div>
+
     <main class="layout">
       <section class="panel">
         <p class="kicker">СиСРТ МТУСИ / CV prototype</p>
         <h1>Анализ кадра тренировки</h1>
-        <p class="lead">
-          Загрузить фото с упражнением, отправить в Python backend и получить
-          сегментацию человека, части тела и грубую оценку позы.
-        </p>
 
-        <label class="dropzone">
-          <input id="fileInput" type="file" accept="image/*" />
-          <span>выбрать изображение</span>
-        </label>
+        <nav class="tabs">
+          <button class="tab active" data-tab="analyze">анализ</button>
+          <button class="tab" data-tab="history">история</button>
+        </nav>
 
-        <div class="actions">
-          <button id="analyzeBtn" disabled>анализ</button>
-          <button id="clearBtn" disabled>сброс</button>
+        <div id="analyzeControls">
+          <label class="field">
+            <span>упражнение</span>
+            <select id="exerciseSelect">
+              <option value="squat">присед (squat)</option>
+              <option value="lunge">выпад (lunge)</option>
+              <option value="push_up">отжимание (push-up)</option>
+            </select>
+          </label>
+
+          <label class="dropzone">
+            <input id="fileInput" type="file" accept="image/*" />
+            <span>выбрать изображение</span>
+          </label>
+
+          <div class="actions">
+            <button id="analyzeBtn" disabled>анализ</button>
+            <button id="clearBtn" disabled>сброс</button>
+          </div>
+
+          <div id="progress" class="progress hidden"><div class="bar"></div></div>
+          <p id="status" class="status">backend: ожидает кадр</p>
         </div>
-
-        <p id="status" class="status">backend: ожидает кадр</p>
       </section>
 
-      <section class="viewer">
+      <!-- analyze view -->
+      <section class="viewer" id="analyzeView">
         <div class="imageBox">
           <img id="preview" alt="" />
           <canvas id="overlay"></canvas>
         </div>
         <aside class="result">
           <h2>результат</h2>
-          <dl>
-            <dt>модель</dt>
-            <dd id="modelName">-</dd>
-            <dt>части тела</dt>
-            <dd id="parts">-</dd>
-            <dt>score</dt>
-            <dd id="score">-</dd>
+          <dl class="meta">
+            <dt>модель</dt><dd id="modelName">-</dd>
+            <dt>упражнение</dt><dd id="exType">-</dd>
+            <dt>form score</dt><dd id="score">-</dd>
+            <dt>глубина</dt><dd id="depth">-</dd>
           </dl>
-          <pre id="jsonOut">{}</pre>
+
+          <h3>части тела</h3>
+          <ul id="partsList" class="parts-list"><li class="muted">-</li></ul>
+
+          <h3>углы суставов</h3>
+          <ul id="anglesList" class="angles-list"><li class="muted">-</li></ul>
+
+          <h3>подсказки тренера</h3>
+          <ul id="feedbackList" class="feedback-list"><li class="muted">-</li></ul>
+
+          <details>
+            <summary>raw json</summary>
+            <pre id="jsonOut">{}</pre>
+          </details>
         </aside>
       </section>
+
+      <!-- history view -->
+      <section class="viewer hidden" id="historyView">
+        <div class="history">
+          <div class="history-head">
+            <h2>история тренировок</h2>
+            <button id="refreshHistory">обновить</button>
+          </div>
+          <table class="history-table">
+            <thead>
+              <tr><th>дата</th><th>упражнение</th><th>повторы</th><th>кадры</th><th>score</th><th></th></tr>
+            </thead>
+            <tbody id="historyBody">
+              <tr><td colspan="6" class="muted">пока пусто</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
     </main>
+
     <script src="./app.js"></script>
   </body>
 </html>
