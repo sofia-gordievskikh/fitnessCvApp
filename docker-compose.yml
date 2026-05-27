@@ -1,0 +1,13 @@
+# поднимает только backend, frontend/electron запускаются отдельно на хосте
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      # веса модели пробрасываем с хоста, в образ их не кладём
+      - ./ml/weights:/app/ml/weights
+    environment:
+      - PYTHONUNBUFFERED=1
