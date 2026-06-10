@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" font-family="Inter, system-ui, sans-serif">
+  <rect width="900" height="520" fill="#f5f7fb"/>
+  <!-- left panel -->
+  <rect x="0" y="0" width="300" height="520" fill="#ffffff" stroke="#d9dfec"/>
+  <text x="28" y="40" fill="#647086" font-size="12">СиСРТ МТУСИ / CV prototype</text>
+  <text x="28" y="76" fill="#18202f" font-size="24" font-weight="700">Анализ кадра</text>
+  <text x="28" y="100" fill="#18202f" font-size="24" font-weight="700">тренировки</text>
+
+  <text x="28" y="140" fill="#2447ff" font-size="14" font-weight="600">анализ</text>
+  <line x1="28" y1="150" x2="72" y2="150" stroke="#2447ff" stroke-width="2"/>
+  <text x="100" y="140" fill="#647086" font-size="14">история</text>
+
+  <rect x="28" y="170" width="244" height="42" rx="6" fill="#fff" stroke="#cfd6e6"/>
+  <text x="42" y="196" fill="#18202f" font-size="13">присед (squat) ▾</text>
+
+  <rect x="28" y="224" width="244" height="72" rx="8" fill="#f8faff" stroke="#8492ad" stroke-dasharray="4 4"/>
+  <text x="150" y="264" fill="#647086" font-size="13" text-anchor="middle">выбрать изображение</text>
+
+  <rect x="28" y="312" width="110" height="38" rx="6" fill="#2447ff"/>
+  <text x="83" y="336" fill="#fff" font-size="13" text-anchor="middle">анализ</text>
+  <rect x="148" y="312" width="90" height="38" rx="6" fill="#b8c0d6"/>
+  <text x="193" y="336" fill="#fff" font-size="13" text-anchor="middle">сброс</text>
+
+  <rect x="28" y="366" width="244" height="6" rx="3" fill="#e3e8f3"/>
+  <rect x="28" y="366" width="96" height="6" rx="3" fill="#2447ff"/>
+  <text x="28" y="398" fill="#4d586d" font-size="13">backend: ok (heuristic-silhouette)</text>
+
+  <!-- image box -->
+  <rect x="324" y="24" width="330" height="472" rx="8" fill="#e8edf7"/>
+  <!-- stick figure -->
+  <circle cx="489" cy="120" r="22" fill="#f0c878"/>
+  <rect x="480" y="142" width="18" height="90" fill="#2447ff"/>
+  <line x1="489" y1="150" x2="440" y2="200" stroke="#17a673" stroke-width="12" stroke-linecap="round"/>
+  <line x1="489" y1="150" x2="538" y2="200" stroke="#17a673" stroke-width="12" stroke-linecap="round"/>
+  <line x1="489" y1="232" x2="450" y2="300" stroke="#e06b28" stroke-width="14" stroke-linecap="round"/>
+  <line x1="450" y1="300" x2="458" y2="380" stroke="#e06b28" stroke-width="14" stroke-linecap="round"/>
+  <line x1="489" y1="232" x2="528" y2="300" stroke="#e06b28" stroke-width="14" stroke-linecap="round"/>
+  <line x1="528" y1="300" x2="520" y2="380" stroke="#e06b28" stroke-width="14" stroke-linecap="round"/>
+  <!-- bbox overlay -->
+  <rect x="470" y="98" width="40" height="44" fill="none" stroke="#8e44ad" stroke-width="2"/>
+  <rect x="455" y="142" width="70" height="90" fill="none" stroke="#2447ff" stroke-width="2"/>
+  <rect x="430" y="250" width="60" height="130" fill="none" stroke="#e06b28" stroke-width="2"/>
+
+  <!-- result panel -->
+  <rect x="666" y="24" width="216" height="472" rx="8" fill="#ffffff" stroke="#d9dfec"/>
+  <text x="682" y="52" fill="#18202f" font-size="16" font-weight="700">результат</text>
+
+  <text x="682" y="82" fill="#647086" font-size="12">упражнение</text>
+  <text x="866" y="82" fill="#18202f" font-size="13" font-weight="600" text-anchor="end">squat</text>
+  <text x="682" y="104" fill="#647086" font-size="12">form score</text>
+  <text x="866" y="104" fill="#18202f" font-size="13" font-weight="600" text-anchor="end">0.83</text>
+  <text x="682" y="126" fill="#647086" font-size="12">глубина</text>
+  <text x="866" y="126" fill="#18202f" font-size="13" font-weight="600" text-anchor="end">0.75</text>
+
+  <text x="682" y="158" fill="#647086" font-size="11" letter-spacing="1">ЧАСТИ ТЕЛА</text>
+  <rect x="682" y="168" width="10" height="10" rx="2" fill="#8e44ad"/><text x="700" y="177" font-size="13">head</text><text x="866" y="177" font-size="12" fill="#647086" text-anchor="end">90%</text>
+  <rect x="682" y="188" width="10" height="10" rx="2" fill="#2447ff"/><text x="700" y="197" font-size="13">torso</text><text x="866" y="197" font-size="12" fill="#647086" text-anchor="end">88%</text>
+  <rect x="682" y="208" width="10" height="10" rx="2" fill="#e06b28"/><text x="700" y="217" font-size="13">left_leg</text><text x="866" y="217" font-size="12" fill="#647086" text-anchor="end">81%</text>
+
+  <text x="682" y="250" fill="#647086" font-size="11" letter-spacing="1">УГЛЫ СУСТАВОВ</text>
+  <text x="682" y="270" font-size="13">knee</text><text x="866" y="270" font-size="12" fill="#647086" text-anchor="end">112°</text>
+  <text x="682" y="290" font-size="13">back</text><text x="866" y="290" font-size="12" fill="#647086" text-anchor="end">75°</text>
+
+  <text x="682" y="322" fill="#647086" font-size="11" letter-spacing="1">ПОДСКАЗКИ ТРЕНЕРА</text>
+  <text x="682" y="342" font-size="13" fill="#18202f">💡 хорошая глубина,</text>
+  <text x="682" y="360" font-size="13" fill="#18202f">держи темп</text>
+
+  <text x="450" y="510" fill="#97a1b5" font-size="11" text-anchor="middle">UI preview (mockup)</text>
+</svg>
