@@ -1,12 +1,6 @@
 # fitnessCvApp
 
-Desktop-прототип фитнес-приложения: Electron-обёртка, простой frontend, FastAPI
-backend и ML-модуль для сегментации человека, оценки позы и подсчёта повторений.
-
-![UI preview](docs/figures/ui_preview.svg)
-
-> UI выше - mockup лейаута. Реальное окно открывается через Electron
-> (`make ui`) и рисует bbox частей тела поверх кадра.
+Desktop-прототип фитнес-приложения: ML-модуль для сегментации человека, оценки позы и подсчёта повторений.
 
 ## Что умеет
 
@@ -80,11 +74,7 @@ npm install && make ui
 
 ## ML
 
-Основная модель - YOLO segmentation checkpoint `ml/weights/body_parts_yolo.pt`.
-Веса в git не хранятся (тяжёлые), поэтому без файла весов backend работает в
-**эвристическом режиме**: части тела и глубина приседа оцениваются прямо из
-силуэта. Этого достаточно, чтобы гонять frontend, сессии и подсчёт повторений на
-машине без GPU.
+Основная модель - YOLO segmentation checkpoint `ml/weights/body_parts_yolo.pt`
 
 ```bash
 python -m ml.train --config ml/configs/body_parts.yaml   # печатает команду yolo train
@@ -95,7 +85,7 @@ python -m ml.predict --image samples/squat.jpg           # инференс од
 [docs/model_card.md](docs/model_card.md) и
 [docs/pose_vs_yolo.md](docs/pose_vs_yolo.md).
 
-## Разработка
+## How to build
 
 ```bash
 make test    # pytest
@@ -104,7 +94,4 @@ make smoke   # поднять backend и дёрнуть /health + /analyze
 make docker-up   # backend в docker (см. docker-compose.yml)
 ```
 
-## Дисклеймер
-
-Учебно-исследовательский прототип (МТУСИ). Оценка техники - эвристики, не
-медицинская рекомендация.
+![UI preview](docs/figures/ui_preview.svg)
